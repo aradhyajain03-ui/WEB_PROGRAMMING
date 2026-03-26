@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Email Generator</title>
+
+    <script>
+        // Function to generate email
+        function generateEmail(btn) {
+
+            // Accessing form using this.form
+            var form = btn.form;
+
+            // Accessing form elements
+            var fname = form.elements["fname"].value;
+            var lname = form.elements["lname"].value;
+
+            // String concatenation to create email
+            var email = fname + "." + lname + "@gmail.com";
+
+            // Displaying result using innerHTML
+            document.getElementById("result").innerHTML = "Generated Email: " + email;
+
+            // Resetting the form
+            form.reset();
+
+            // Setting focus back to first name field
+            form.elements["fname"].focus();
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Name and Registration Number -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Email Address Generator</h2>
+
+    <!-- Form -->
+    <form>
+        First Name:
+        <input type="text" name="fname" required><br><br>
+
+        Last Name:
+        <input type="text" name="lname" required><br><br>
+
+        <!-- Button with this.form -->
+        <button type="button" onclick="generateEmail(this)">Generate Email</button>
+    </form>
+
+    <br>
+
+    <!-- Result display -->
+    <p id="result" style="font-size:20px; color:blue;"></p>
+
+</body>
+
+</html>
+

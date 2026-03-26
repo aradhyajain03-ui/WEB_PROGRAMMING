@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Background Color Change</title>
+
+    <script>
+        // Function with parameter to change background color
+        function changeColor(color) {
+            
+            // Changing background color using DOM
+            document.body.style.backgroundColor = color;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Display Name and Registration Number -->
+    <p style="font-size:22px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:22px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Click a button to change background color</h2>
+
+    <!-- Buttons with onclick event -->
+    <button type="button" onclick="changeColor('red')" 
+    style="padding:15px 20px; font-size:20px;">Red</button>
+    
+    <button type="button" onclick="changeColor('green')" 
+    style="padding:15px 20px; font-size:20px;">Green</button>
+    
+    <button type="button" onclick="changeColor('blue')" 
+    style="padding:15px 20px; font-size:20px;">Blue</button>
+</body>
+
+</html>

@@ -1,1 +1,34 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>Hello World Program</title>
+
+    <script>
+        // Function declaration to display message
+        function showMessage() {
+            
+            // Using var keyword to declare variable
+            var element = document.getElementById("demo");
+            
+            // Using outerHTML to replace the entire element
+            element.outerHTML = "<p id='demo' style='font-size:30px;'>Hello, World!</p>";
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Display Name and Registration Number -->
+    <p><b>Name:</b> Aradhya Saraf Jain</p>
+    <p><b>Reg No:</b> 24BCT0018</p>
+
+    <!-- Button with onclick event -->
+    <button onclick="showMessage()">Click Me</button>
+
+    <!-- Placeholder paragraph -->
+    <p id="demo"></p>
+
+</body>
+
+</html>

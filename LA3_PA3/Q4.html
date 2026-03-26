@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Area of Rectangle</title>
+
+    <script>
+        // Function to calculate area of rectangle
+        function calculateArea() {
+
+            // Declaring variables using var (camelCase naming)
+            var lengthInt = 8;
+            var widthInt = 4;
+
+            // Calculating area using integer values
+            var areaInt = lengthInt * widthInt;
+
+            // Now using floating-point values (loose typing)
+            var lengthFloat = 8.5;
+            var widthFloat = 4.2;
+
+            // Calculating area using floating-point values
+            var areaFloat = lengthFloat * widthFloat;
+
+            // Displaying results using innerHTML
+            document.getElementById("result").innerHTML =
+                "Area using Integers: " + areaInt + "<br>" +
+                "Area using Floating-point numbers: " + areaFloat;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Name and Registration Number -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Rectangle Area Calculator</h2>
+
+    <!-- Button to execute function -->
+    <button onclick="calculateArea()">Calculate Area</button>
+
+    <br><br>
+
+    <!-- Display result -->
+    <p id="result" style="font-size:20px; color:green;"></p>
+
+</body>
+
+</html>
