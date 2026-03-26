@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Radio Button Selection</title>
+
+    <script>
+        // Function to display selected color
+        function showColor() {
+
+            // Accessing radio buttons using name
+            var colors = document.getElementsByName("color");
+
+            var selectedColor = "";
+
+            // Loop through radio buttons
+            for (var i = 0; i < colors.length; i++) {
+
+                // Check which radio button is selected
+                if (colors[i].checked) {
+                    selectedColor = colors[i].value;
+                }
+            }
+
+            // Display result using innerHTML
+            document.getElementById("result").innerHTML =
+                "Selected Color: " + selectedColor;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Name and Registration Number -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Select a Color</h2>
+
+    <!-- Radio buttons (same name for grouping) -->
+    <input type="radio" name="color" value="Red"> Red <br>
+    <input type="radio" name="color" value="Green"> Green <br>
+    <input type="radio" name="color" value="Blue"> Blue <br><br>
+
+    <!-- Button -->
+    <button onclick="showColor()">Show Selected Color</button>
+
+    <br><br>
+
+    <!-- Output -->
+    <p id="result" style="font-size:20px; color:blue;"></p>
+
+</body>
+
+</html>

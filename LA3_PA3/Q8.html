@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Multiplication Table</title>
+
+    <script>
+        // Function to print multiplication table
+        function printTable() {
+
+            // Taking input from user
+            var num = parseInt(document.getElementById("number").value);
+
+            // Initializing counter
+            var i = 1;
+
+            var output = "";
+
+            // Do-while loop (executes at least once)
+            do {
+                // Building output string with multiplication
+                output += num + " x " + i + " = " + (num * i) + "<br>";
+
+                i++; // Increment counter
+
+            } while (i <= 10); // Condition check after execution
+
+            // Display result using innerHTML
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Name and Registration Number -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Multiplication Table Generator</h2>
+
+    <!-- Input field -->
+    Enter Number:
+    <input type="text" id="number"><br><br>
+
+    <!-- Button -->
+    <button onclick="printTable()">Generate Table</button>
+
+    <br><br>
+
+    <!-- Output -->
+    <p id="result" style="font-size:20px; color:green;"></p>
+
+</body>
+
+</html>

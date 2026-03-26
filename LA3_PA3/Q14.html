@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Styling Application</title>
+
+    <style>
+        /* Predefined CSS Classes */
+        .bold {
+            font-weight: bold;
+        }
+
+        .italic {
+            font-style: italic;
+        }
+
+        .smallCaps {
+            font-variant: small-caps;
+        }
+    </style>
+
+    <script>
+        // Function to apply styles using className
+        function applyStyle(styleType) {
+
+            var text = document.getElementById("message");
+
+            // Apply single or multiple classes
+            if (styleType === "bold") {
+                text.className = "bold";
+            }
+            else if (styleType === "italic") {
+                text.className = "italic";
+            }
+            else if (styleType === "smallCaps") {
+                text.className = "smallCaps";
+            }
+            else if (styleType === "all") {
+                // Multiple class assignment
+                text.className = "bold italic smallCaps";
+            }
+            else {
+                // Reset styles
+                text.className = "";
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Name and Reg No -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Text Styling Application</h2>
+
+    <!-- Fieldset for grouping buttons -->
+    <fieldset>
+        <legend>Choose Style</legend>
+
+        <button onclick="applyStyle('bold')">Bold</button>
+        <button onclick="applyStyle('italic')">Italic</button>
+        <button onclick="applyStyle('smallCaps')">Small Caps</button>
+        <button onclick="applyStyle('all')">All Styles</button>
+        <button onclick="applyStyle('reset')">Reset</button>
+
+    </fieldset>
+
+    <br>
+
+    <!-- Message -->
+    <p id="message" style="font-size:22px;">
+        This is a sample text for styling.
+    </p>
+
+</body>
+
+</html>

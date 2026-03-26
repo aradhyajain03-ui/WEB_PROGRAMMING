@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Print Numbers using While Loop</title>
+
+    <script>
+        // Function to print numbers
+        function printNumbers() {
+
+            // Taking input from user
+            var n = parseInt(document.getElementById("num").value);
+
+            // Initializing counter
+            var i = 1;
+
+            var output = "";
+
+            // While loop execution with condition
+            while (i <= n) {
+                output += i + " ";
+                i++; // Increment counter
+            }
+
+            // Display output in HTML
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Name and Registration Number -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Print Numbers from 1 to N</h2>
+
+    <!-- User Input -->
+    Enter N:
+    <input type="text" id="num"><br><br>
+
+    <!-- Button -->
+    <button onclick="printNumbers()">Print</button>
+
+    <br><br>
+
+    <!-- Output -->
+    <p id="result" style="font-size:20px; color:blue;"></p>
+
+</body>
+
+</html>
