@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Overlapping Image Gallery</title>
+
+    <style>
+        /* Container for images */
+        .gallery {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: auto;
+        }
+
+        /* Common image styling */
+        .gallery img {
+            position: absolute; /* Required for z-index */
+            width: 150px;
+            height: 150px;
+            cursor: pointer;
+            border: 2px solid black;
+        }
+
+        /* Different positions for overlap */
+        #img1 { top: 20px; left: 20px; }
+        #img2 { top: 60px; left: 80px; }
+        #img3 { top: 100px; left: 140px; }
+    </style>
+
+    <script>
+        // Global variable to track highest z-index
+        var topIndex = 1;
+
+        // Function to bring clicked image to front
+        function bringToFront(img) {
+
+            // Increment z-index using prefix operator
+            img.style.zIndex = ++topIndex;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Name and Reg No -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Overlapping Image Gallery</h2>
+
+    <!-- Image Container -->
+    <div class="gallery">
+
+        <!-- Images with onclick -->
+        <img id="img1" src="https://picsum.photos/150?random=1" onclick="bringToFront(this)">
+        <img id="img2" src="https://picsum.photos/150?random=2" onclick="bringToFront(this)">
+        <img id="img3" src="https://picsum.photos/150?random=3" onclick="bringToFront(this)">
+    </div>
+
+</body>
+
+</html>
