@@ -1,47 +1,21 @@
-# 🌤 Atmosphere — Weather Dashboard
+# 🌍 Atlas — Country Explorer
 
-A beautiful weather dashboard. No API key required — uses the free Open-Meteo API.
+Explore 250+ countries. No API key required — uses the free RestCountries API.
 
 ## Quick Start
-
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server (auto-opens at http://localhost:3000)
 npm run dev
+# Opens at http://localhost:3001
 ```
 
 ## Features
-- City search with geocoding
-- Current conditions (temp, feels like, weather code)
-- 6-day forecast with highs/lows & rain chance
-- Hourly temperature bar chart (24 hrs)
-- Sunrise/sunset arc animation
-- Atmospheric details: humidity, wind, UV, pressure, visibility
-- °C / °F toggle (saved to localStorage)
-- Auto-restores last searched city on reload
+- Browse all 250+ countries in a card grid
+- Search by country name or capital
+- Filter by region (Africa, Asia, Europe, etc.)
+- Sort by name (A–Z) or population
+- Click any card → detailed modal with flag, currencies, languages, timezones, borders
+- Click border countries to navigate between them
 
-## Project Structure
-
-```
-weather-dashboard/
-├── index.html
-├── package.json
-├── vite.config.js
-└── src/
-    ├── main.js                  # App entry, state, orchestration
-    ├── styles/main.css          # All styles
-    ├── components/
-    │   ├── header.js            # Logo, clock, unit toggle
-    │   ├── search.js            # City search bar
-    │   └── dashboard.js         # All weather cards
-    └── utils/weather.js         # API calls + data helpers
-```
-
-## Build for Production
-
-```bash
-npm run build
-npm run preview
-```
+## API Used
+https://restcountries.com — completely free, no key needed.
