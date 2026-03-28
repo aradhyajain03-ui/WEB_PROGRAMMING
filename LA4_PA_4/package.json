@@ -1,7 +1,7 @@
 {
-  "name": "book-explorer",
+  "name": "weather-dashboard",
   "version": "1.0.0",
-  "description": "A beautiful book discovery app powered by the Open Library API",
+  "description": "A beautiful weather dashboard application",
   "type": "module",
   "scripts": {
     "dev": "vite",
