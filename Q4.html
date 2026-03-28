@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Grade Calculator</title>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .container {
+            width: 320px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        input {
+            margin: 8px;
+            padding: 8px;
+            width: 80%;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: darkgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Functional Component
+        const GradeCalculator = () => {
+
+            // Multiple useState Hooks
+            const [mark1, setMark1] = React.useState("");
+            const [mark2, setMark2] = React.useState("");
+            const [mark3, setMark3] = React.useState("");
+            const [result, setResult] = React.useState("");
+
+            // Function to calculate grade
+            const calculateGrade = () => {
+
+                // Convert to numbers
+                const m1 = Number(mark1);
+                const m2 = Number(mark2);
+                const m3 = Number(mark3);
+
+                // Average calculation
+                const avg = (m1 + m2 + m3) / 3;
+
+                let grade = "";
+
+                // Conditional logic
+                if (avg >= 90) {
+                    grade = "A+";
+                } else if (avg >= 75) {
+                    grade = "A";
+                } else if (avg >= 60) {
+                    grade = "B";
+                } else if (avg >= 50) {
+                    grade = "C";
+                } else {
+                    grade = "Fail";
+                }
+
+                // Set result
+                setResult(`Average: ${avg.toFixed(2)} | Grade: ${grade}`);
+            };
+
+            return (
+                <div className="container">
+
+                    {/* Name & Reg No */}
+                    <p><b>Name:</b> Aradhya Saraf Jain</p>
+                    <p><b>Reg No:</b> 24BCT0018</p>
+
+                    <h2>Grade Calculator</h2>
+
+                    {/* Controlled Inputs */}
+                    <input
+                        type="number"
+                        value={mark1}
+                        onChange={(e) => setMark1(e.target.value)}
+                        placeholder="Enter Subject 1 marks"
+                    />
+
+                    <input
+                        type="number"
+                        value={mark2}
+                        onChange={(e) => setMark2(e.target.value)}
+                        placeholder="Enter Subject 2 marks"
+                    />
+
+                    <input
+                        type="number"
+                        value={mark3}
+                        onChange={(e) => setMark3(e.target.value)}
+                        placeholder="Enter Subject 3 marks"
+                    />
+
+                    <br />
+
+                    {/* Button */}
+                    <button onClick={calculateGrade}>Calculate Grade</button>
+
+                    {/* Output */}
+                    <h3>{result}</h3>
+
+                </div>
+            );
+        };
+
+        // Render
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<GradeCalculator />);
+
+    </script>
+
+</body>
+
+</html>
