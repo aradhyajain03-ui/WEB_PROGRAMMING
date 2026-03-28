@@ -1,6 +1,6 @@
-# 🌤 Atmosphere — Weather Dashboard
+# 📚 Folio — Book Explorer
 
-A beautiful weather dashboard. No API key required — uses the free Open-Meteo API.
+A beautiful book discovery app powered by the **Open Library API**. No API key required.
 
 ## Quick Start
 
@@ -8,35 +8,41 @@ A beautiful weather dashboard. No API key required — uses the free Open-Meteo 
 # Install dependencies
 npm install
 
-# Start dev server (auto-opens at http://localhost:3000)
+# Start dev server
 npm run dev
 ```
 
+Opens at **http://localhost:5173**
+
 ## Features
-- City search with geocoding
-- Current conditions (temp, feels like, weather code)
-- 6-day forecast with highs/lows & rain chance
-- Hourly temperature bar chart (24 hrs)
-- Sunrise/sunset arc animation
-- Atmospheric details: humidity, wind, UV, pressure, visibility
-- °C / °F toggle (saved to localStorage)
-- Auto-restores last searched city on reload
+
+- 🔍 **Real-time search** — Search any book, author, or subject via Open Library
+- 💡 **Autocomplete** — Instant suggestions as you type
+- 📊 **Stats panel** — Avg rating, languages, page count across results
+- 🗂️ **Subject filters** — Filter by Fiction, Sci-Fi, History and more
+- ⊞ **Grid / List view** — Toggle between card grid and compact list
+- 📖 **Book details modal** — Full description, subjects, rating, link to Open Library
+- 📌 **My Shelf** — Save favourites, persisted via localStorage
+- 🔁 **Load more** — Paginate through all results
+- ↩️ **Last search restored** — Remembers your last query on reload
 
 ## Project Structure
 
 ```
-weather-dashboard/
+book-explorer/
 ├── index.html
 ├── package.json
 ├── vite.config.js
 └── src/
     ├── main.js                  # App entry, state, orchestration
-    ├── styles/main.css          # All styles
+    ├── styles/
+    │   └── main.css             # All styles
     ├── components/
-    │   ├── header.js            # Logo, clock, unit toggle
-    │   ├── search.js            # City search bar
-    │   └── dashboard.js         # All weather cards
-    └── utils/weather.js         # API calls + data helpers
+    │   ├── header.js            # Logo, search bar, view toggle
+    │   ├── dashboard.js         # Stats row, book grid/list, panels
+    │   └── modal.js             # Book detail modal
+    └── utils/
+        └── openlib.js           # Open Library API calls + helpers
 ```
 
 ## Build for Production
@@ -45,3 +51,11 @@ weather-dashboard/
 npm run build
 npm run preview
 ```
+
+## API
+
+Uses the free [Open Library API](https://openlibrary.org/developers/api) — no key required.
+
+- Search: `https://openlibrary.org/search.json`
+- Book details: `https://openlibrary.org/works/{id}.json`
+- Covers: `https://covers.openlibrary.org/b/id/{id}-M.jpg`
