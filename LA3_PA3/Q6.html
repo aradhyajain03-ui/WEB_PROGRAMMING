@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Information System</title>
+
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            margin-top: 20px;
+            width: 60%;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+
+    <script>
+        // Global array to store students
+        var students = [];
+
+        // Constructor function (Object)
+        function Student(name, age, course) {
+            this.name = name;
+            this.age = age;
+            this.course = course;
+
+            // Object method using this keyword
+            this.getDetails = function () {
+                return this.name + " - " + this.age + " - " + this.course;
+            };
+        }
+
+        // Function to add student
+        function addStudent(btn) {
+
+            // Accessing form using this.form
+            var form = btn.form;
+
+            var name = form.elements["name"].value;
+            var age = form.elements["age"].value;
+            var course = form.elements["course"].value;
+
+            // Creating new object
+            var student = new Student(name, age, course);
+
+            // Adding to array
+            students.push(student);
+
+            // Display updated table
+            displayStudents();
+
+            // Reset form
+            form.reset();
+
+            // Focus back to name field
+            form.elements["name"].focus();
+        }
+
+        // Function to display students (Dynamic Table)
+        function displayStudents() {
+
+            var output = "<table><tr><th>Name</th><th>Age</th><th>Course</th></tr>";
+
+            // Loop through array
+            for (var i = 0; i < students.length; i++) {
+                output += "<tr>";
+                output += "<td>" + students[i].name + "</td>";
+                output += "<td>" + students[i].age + "</td>";
+                output += "<td>" + students[i].course + "</td>";
+                output += "</tr>";
+            }
+
+            output += "</table>";
+
+            // Display table using DOM
+            document.getElementById("result").innerHTML = output;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Name and Reg No -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Student Information System</h2>
+
+    <!-- Form -->
+    <form>
+        Name: <input type="text" name="name" required><br>
+        Age: <input type="number" name="age" required><br>
+        Course: <input type="text" name="course" required><br>
+
+        <!-- Button -->
+        <button type="button" onclick="addStudent(this)">Add Student</button>
+    </form>
+
+    <!-- Output -->
+    <div id="result"></div>
+
+</body>
+
+</html>

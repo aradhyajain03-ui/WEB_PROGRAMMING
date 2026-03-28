@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Todo List</title>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .container {
+            width: 350px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+        }
+
+        input {
+            padding: 8px;
+            width: 70%;
+            margin-right: 5px;
+        }
+
+        button {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        li {
+            background: #ddd;
+            margin: 5px;
+            padding: 8px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Functional Component
+        const TodoApp = () => {
+
+            // useState for input (string)
+            const [task, setTask] = React.useState("");
+
+            // useState for task list (array)
+            const [tasks, setTasks] = React.useState([]);
+
+            // Function to add task
+            const addTask = () => {
+
+                if (task.trim() === "") return;
+
+                // Using spread operator for immutability
+                setTasks([...tasks, task]);
+
+                // Clear input
+                setTask("");
+            };
+
+            return (
+                <div className="container">
+
+                    {/* Name & Reg No */}
+                    <p><b>Name:</b> Aradhya Saraf Jain</p>
+                    <p><b>Reg No:</b> 24BCT0018</p>
+
+                    <h2>Todo List</h2>
+
+                    {/* Controlled Input */}
+                    <input
+                        type="text"
+                        value={task}
+                        onChange={(e) => setTask(e.target.value)}
+                        placeholder="Enter a task"
+                    />
+
+                    {/* Button */}
+                    <button onClick={addTask}>Add</button>
+
+                    {/* Task List */}
+                    <ul>
+                        {tasks.map((t, index) => (
+                            <li key={index}>{t}</li>  // key prop
+                        ))}
+                    </ul>
+
+                </div>
+            );
+        };
+
+        // Render
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<TodoApp />);
+
+    </script>
+
+</body>
+
+</html>

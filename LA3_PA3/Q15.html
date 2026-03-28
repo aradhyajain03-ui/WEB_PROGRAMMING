@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Font Customization Tool</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        fieldset {
+            width: 50%;
+            margin: auto;
+            padding: 15px;
+        }
+    </style>
+
+    <script>
+        // Function to apply font customization
+        function applyStyles() {
+
+            // Access text element
+            var text = document.getElementById("message");
+
+            // Get user inputs
+            var fontSize = document.getElementById("size").value;
+            var textColor = document.getElementById("color").value;
+            var bgColor = document.getElementById("bgcolor").value;
+
+            // Apply styles dynamically using style property
+            text.style.fontSize = fontSize + "px";
+            text.style.color = textColor;
+            text.style.backgroundColor = bgColor;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Name and Reg No -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Dynamic Font Customization Tool</h2>
+
+    <!-- Fieldset for controls -->
+    <fieldset>
+        <legend>Customize Font</legend>
+
+        <!-- Range Slider for Font Size -->
+        Font Size:
+        <input type="range" id="size" min="10" max="50" value="20"><br><br>
+
+        <!-- Color Picker for Text -->
+        Text Color:
+        <input type="color" id="color"><br><br>
+
+        <!-- Color Picker for Background -->
+        Background Color:
+        <input type="color" id="bgcolor"><br><br>
+
+        <!-- Button -->
+        <button onclick="applyStyles()">Apply Styles</button>
+    </fieldset>
+
+    <br>
+
+    <!-- Text to customize -->
+    <p id="message" style="font-size:20px;">
+        This is customizable text.
+    </p>
+
+</body>
+
+</html>

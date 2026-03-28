@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Calculator</title>
+
+    <script>
+        // Function to perform calculation
+        function calculate(operation) {
+
+            // Getting input values and converting to float
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+
+            var result;
+
+            // Using switch statement for operations
+            switch (operation) {
+
+                case 'add':
+                    result = num1 + num2;
+                    break;
+
+                case 'sub':
+                    result = num1 - num2;
+                    break;
+
+                case 'mul':
+                    result = num1 * num2;
+                    break;
+
+                case 'div':
+                    // Handling division by zero
+                    if (num2 === 0) {
+                        result = "Cannot divide by zero!";
+                    } else {
+                        result = num1 / num2;
+                    }
+                    break;
+
+                default:
+                    result = "Invalid Operation";
+            }
+
+            // Display result using innerHTML
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Name and Registration Number -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Simple Calculator</h2>
+
+    <!-- Number inputs with step="any" -->
+    Number 1:
+    <input type="number" id="num1" step="any"><br><br>
+
+    Number 2:
+    <input type="number" id="num2" step="any"><br><br>
+
+    <!-- Buttons for operations -->
+    <button onclick="calculate('add')">Add</button>
+    <button onclick="calculate('sub')">Subtract</button>
+    <button onclick="calculate('mul')">Multiply</button>
+    <button onclick="calculate('div')">Divide</button>
+
+    <br><br>
+
+    <!-- Result display -->
+    <p id="result" style="font-size:20px; color:blue;"></p>
+
+</body>
+
+</html>

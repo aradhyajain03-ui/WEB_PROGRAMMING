@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkbox Selection</title>
+
+    <script>
+        // Function to count selected checkboxes
+        function countSubjects() {
+
+            // Accessing all checkboxes by name
+            var subjects = document.getElementsByName("subject");
+
+            // Array to store selected subjects
+            var selected = [];
+
+            // Counter variable
+            var count = 0;
+
+            // Loop through checkboxes
+            for (var i = 0; i < subjects.length; i++) {
+
+                // Check if checkbox is selected
+                if (subjects[i].checked) {
+
+                    // Add selected value to array
+                    selected.push(subjects[i].value);
+
+                    // Increase counter
+                    count++;
+                }
+            }
+
+            // Display result using join() to convert array to string
+            document.getElementById("result").innerHTML =
+                "Selected Subjects (" + count + "): " + selected.join(", ");
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Name and Registration Number -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Select Subjects</h2>
+
+    <!-- Checkboxes -->
+    <input type="checkbox" name="subject" value="Math"> Math <br>
+    <input type="checkbox" name="subject" value="Science"> Science <br>
+    <input type="checkbox" name="subject" value="English"> English <br>
+    <input type="checkbox" name="subject" value="Computer"> Computer <br><br>
+
+    <!-- Button -->
+    <button onclick="countSubjects()">Show Selection</button>
+
+    <br><br>
+
+    <!-- Output -->
+    <p id="result" style="font-size:20px; color:green;"></p>
+
+</body>
+
+</html>

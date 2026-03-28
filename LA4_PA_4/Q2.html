@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Calculator</title>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        /* CSS Styling */
+        .container {
+            width: 300px;
+            margin: auto;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background-color: #f2f2f2;
+        }
+
+        input {
+            margin: 10px;
+            padding: 8px;
+            width: 80%;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Functional Component
+        const Calculator = () => {
+
+            // useState Hook
+            const [num1, setNum1] = React.useState("");
+            const [num2, setNum2] = React.useState("");
+            const [result, setResult] = React.useState(0);
+
+            // Addition function
+            const add = () => {
+                setResult(Number(num1) + Number(num2));
+            };
+
+            // Subtraction function
+            const subtract = () => {
+                setResult(Number(num1) - Number(num2));
+            };
+
+            return (
+                <div className="container">
+
+                    {/* Name & Reg No */}
+                    <p><b>Name:</b> Aradhya Saraf Jain</p>
+                    <p><b>Reg No:</b> 24BCT0018</p>
+
+                    <h2>React Calculator</h2>
+
+                    {/* Controlled Inputs */}
+                    <input
+                        type="number"
+                        value={num1}
+                        onChange={(e) => setNum1(e.target.value)}
+                        placeholder="Enter first number"
+                    />
+
+                    <input
+                        type="number"
+                        value={num2}
+                        onChange={(e) => setNum2(e.target.value)}
+                        placeholder="Enter second number"
+                    />
+
+                    <br />
+
+                    {/* Buttons */}
+                    <button onClick={add}>Add</button>
+                    <button onClick={subtract}>Subtract</button>
+
+                    {/* Result */}
+                    <h3>Result: {result}</h3>
+
+                </div>
+            );
+        };
+
+        // Render using createRoot
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<Calculator />);
+
+    </script>
+
+</body>
+
+</html>

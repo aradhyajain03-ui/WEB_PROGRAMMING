@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Order Form</title>
+
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        fieldset {
+            width: 50%;
+            margin: 10px auto;
+            padding: 15px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+
+    <script>
+        // Function to calculate total price
+        function calculateTotal() {
+
+            var total = 0;
+
+            // Select all checked checkboxes
+            var items = document.querySelectorAll("input[type='checkbox']:checked");
+
+            // Using modern for...of loop
+            for (var item of items) {
+
+                // Convert value to float and add to total
+                total += parseFloat(item.value);
+            }
+
+            // Display total
+            document.getElementById("result").innerHTML =
+                "Total Price: ₹" + total;
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Name and Reg No -->
+    <p style="font-size:24px;"><b>Name:</b> Aradhya Saraf Jain</p>
+    <p style="font-size:24px;"><b>Reg No:</b> 24BCT0018</p>
+
+    <h2>Product Order Form</h2>
+
+    <!-- Fieldset 1 -->
+    <fieldset>
+        <legend>Electronics</legend>
+        <input type="checkbox" value="500"> Headphones (₹500)<br>
+        <input type="checkbox" value="1000"> Keyboard (₹1000)<br>
+    </fieldset>
+
+    <!-- Fieldset 2 -->
+    <fieldset>
+        <legend>Books</legend>
+        <input type="checkbox" value="300"> Programming Book (₹300)<br>
+        <input type="checkbox" value="200"> Novel (₹200)<br>
+    </fieldset>
+
+    <!-- Fieldset 3 -->
+    <fieldset>
+        <legend>Accessories</legend>
+        <input type="checkbox" value="150"> Mouse Pad (₹150)<br>
+        <input type="checkbox" value="250"> USB Cable (₹250)<br>
+    </fieldset>
+
+    <!-- Button -->
+    <button onclick="calculateTotal()">Calculate Total</button>
+
+    <br><br>
+
+    <!-- Output -->
+    <p id="result" style="font-size:20px; color:green;"></p>
+
+</body>
+
+</html>
