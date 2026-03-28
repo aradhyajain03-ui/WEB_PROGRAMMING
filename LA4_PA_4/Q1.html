@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <title>React Welcome App</title>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Root Element -->
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Functional Component with Props
+        function Welcome(props) {
+
+            // Inline styling
+            const style = {
+                color: "blue",
+                fontSize: "22px",
+                textAlign: "center"
+            };
+
+            return (
+                <div>
+                    {/* Name and Registration Number */}
+                    <p style={{fontSize:"24px", fontWeight:"bold"}}>
+                        Name: Aradhya Saraf Jain
+                    </p>
+                    <p style={{fontSize:"24px", fontWeight:"bold"}}>
+                        Reg No: 24BCT0018
+                    </p>
+
+                    {/* Greeting using props */}
+                    <h2 style={style}>
+                        Hello, {props.name} from {props.city}!
+                    </h2>
+
+                    {/* Additional paragraph */}
+                    <p style={{textAlign:"center"}}>
+                        Welcome to the React application. This page demonstrates functional components and props.
+                    </p>
+                </div>
+            );
+        }
+
+        // Rendering using ReactDOM.createRoot
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+
+        root.render(<Welcome name="Aradhya" city="Vellore" />);
+
+    </script>
+
+</body>
+
+</html>

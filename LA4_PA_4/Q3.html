@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>React Image Gallery</title>
+
+    <!-- React CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .preview {
+            width: 300px;
+            height: 200px;
+            margin-bottom: 20px;
+            border: 2px solid black;
+            transition: transform 0.3s ease;
+        }
+
+        .preview:hover {
+            transform: scale(1.05);
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbnails img {
+            width: 80px;
+            height: 60px;
+            cursor: pointer;
+            border: 2px solid gray;
+            transition: transform 0.3s;
+        }
+
+        .thumbnails img:hover {
+            transform: scale(1.2);
+            border-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+        // Functional Component
+        const ImageGallery = () => {
+
+            // Image array (dynamic sources)
+            const images = [
+                "https://picsum.photos/id/1015/300/200",
+                "https://picsum.photos/id/1016/300/200",
+                "https://picsum.photos/id/1018/300/200",
+                "https://picsum.photos/id/1020/300/200"
+            ];
+
+            // State for selected image
+            const [selectedImage, setSelectedImage] = React.useState(images[0]);
+
+            return (
+                <div className="gallery">
+
+                    {/* Name & Reg No */}
+                    <p><b>Name:</b> Aradhya Saraf Jain</p>
+                    <p><b>Reg No:</b> 24BCT0018</p>
+
+                    <h2>Image Gallery</h2>
+
+                    {/* Large Preview */}
+                    <img src={selectedImage} className="preview" />
+
+                    {/* Thumbnails using map */}
+                    <div className="thumbnails">
+                        {images.map((img, index) => (
+                            <img
+                                key={index}  // key prop
+                                src={img}
+                                onClick={() => setSelectedImage(img)} // event handling
+                            />
+                        ))}
+                    </div>
+
+                </div>
+            );
+        };
+
+        // Render
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<ImageGallery />);
+
+    </script>
+
+</body>
+
+</html>
